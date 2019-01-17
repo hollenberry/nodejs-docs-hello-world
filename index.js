@@ -12,8 +12,11 @@ var server = http.createServer(async function(request, response) {
     })
     
   try {
-      const user = await octokit.users.getAuthenticated({})
-      response.end(`Hi there, ${user.data.login}`)
+      const repo = await octokit.repos.get({
+        owner: 'hectorsector',
+        repo: 'nodejs-docs-hello-world'
+      })
+      response.end(`Hi there, ${repo.data.owner.login}`)
     } catch (err) {
       response.end(`I don't know who you are.`)
       console.log(err)
