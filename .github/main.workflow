@@ -9,6 +9,7 @@ action "deploy" {
     "ZEIT_TOKEN",
     "GITHUB_TOKEN",
   ]
+  args = "-e GITHUB_TOKEN=$GITHUB_TOKEN"
 }
 
 action "alias" {
